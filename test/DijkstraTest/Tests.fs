@@ -28,3 +28,7 @@ let assertMinPath graph length path =
 [<InlineData("B1Z")>]
 let ``should support degenerate cases`` graph =
     assertMinPath graph (Some 0) (Some "{}")
+
+[<Fact>]
+let ``should support one edge graph`` () =
+    assertMinPath "A1Z" (Some 1) None
