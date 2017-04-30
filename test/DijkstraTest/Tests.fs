@@ -4,7 +4,8 @@ open System
 open Xunit
 open Dijkstra
 
-let assertMinPath graph length path =
+let assertMinPath graphExpression length path =
+    let graph = PathFinder.createGraph graphExpression
     match length with
     | Some l ->
         Assert.Equal(
@@ -16,18 +17,18 @@ let assertMinPath graph length path =
     | Some p ->
         Assert.Equal(
             p,
-            PathFinder.minPath graph "A" "Z"
+            PathFinder.minPath graphExpression "A" "Z"
         )
     | None -> ()
 
 [<Theory>]
-[<InlineData("")>]
-[<InlineData("A")>]
-[<InlineData("B1C")>]
-[<InlineData("A1C")>]
-[<InlineData("B1Z")>]
-let ``should support degenerate cases`` graph =
-    assertMinPath graph (Some 0) (Some "{}")
+[<InlineData("", 0)>]
+[<InlineData("A", 0)>]
+[<InlineData("B1C", 1)>]
+[<InlineData("A1C", 1)>]
+[<InlineData("B1Z", 1)>]
+let ``should support degenerate cases`` graphExpression length =
+    assertMinPath graphExpression (Some length) (Some "{}")
 
 [<Fact>]
 let ``should support one edge graph`` () =
