@@ -5,14 +5,20 @@ open Xunit
 open Dijkstra
 
 let assertMinPath graph length path =
-    Assert.Equal(
-        length,
-        PathFinder.minLength graph "A" "Z"
-    )
-    Assert.Equal(
-        path, 
-        PathFinder.minPath graph "A" "Z"
-    )
+    match length with
+    | Some l ->
+        Assert.Equal(
+            l,
+            PathFinder.minLength graph "A" "Z"
+        )
+    | None -> ()
+    match path with
+    | Some p ->
+        Assert.Equal(
+            p,
+            PathFinder.minPath graph "A" "Z"
+        )
+    | None -> ()
 
 [<Theory>]
 [<InlineData("")>]
@@ -21,4 +27,4 @@ let assertMinPath graph length path =
 [<InlineData("A1C")>]
 [<InlineData("B1Z")>]
 let ``should support degenerate cases`` graph =
-    assertMinPath graph 0 "{}"
+    assertMinPath graph (Some 0) (Some "{}")
