@@ -5,5 +5,8 @@ open Dijkstra
 
 [<EntryPoint>]
 let main argv =
-    printfn "%s" (PathFinder.minPath "" "A" "B")
+    printfn
+        "%s %d"
+        (PathFinder.minPath "" "A" "B")
+        (PathFinder.minLength "" "A" "B")
     0 // return an integer exit code

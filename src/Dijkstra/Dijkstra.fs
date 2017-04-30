@@ -2,4 +2,7 @@ namespace Dijkstra
 
 module PathFinder =
     let minPath graph beginNode endNode =
-        "{}0"
+        "{}"
+
+    let minLength graph beginNode endNode =
+        0

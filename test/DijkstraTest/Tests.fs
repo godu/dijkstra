@@ -4,12 +4,16 @@ open System
 open Xunit
 open Dijkstra
 
-let assertPath graph expect =
+let assertMinPath graph length path =
     Assert.Equal(
-        expect,
+        length,
+        PathFinder.minLength graph "A" "Z"
+    )
+    Assert.Equal(
+        path, 
         PathFinder.minPath graph "A" "Z"
     )
 
 [<Fact>]
 let ``noGraph should have noPath`` () =
-    assertPath "" "{}0"
+    assertMinPath "" 0 "{}"
