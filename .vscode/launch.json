@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "ConsoleBuild",
+            "program": "${workspaceRoot}/src/DijkstraConsole/bin/Debug/netcoreapp1.1/DijkstraConsole.dll",
+            "args": [],
+            "cwd": "${workspaceRoot}/src/DijkstraConsole",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}
