@@ -14,6 +14,11 @@ let assertMinPath graph length path =
         PathFinder.minPath graph "A" "Z"
     )
 
-[<Fact>]
-let ``noGraph should have noPath`` () =
-    assertMinPath "" 0 "{}"
+[<Theory>]
+[<InlineData("")>]
+[<InlineData("A")>]
+[<InlineData("B1C")>]
+[<InlineData("A1C")>]
+[<InlineData("B1Z")>]
+let ``should support degenerate cases`` graph =
+    assertMinPath graph 0 "{}"
