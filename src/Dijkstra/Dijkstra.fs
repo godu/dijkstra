@@ -1,5 +1,5 @@
 namespace Dijkstra
 
-module Say =
-    let hello name =
-        sprintf "Hello %s" name
+module PathFinder =
+    let minPath graph =
+        "{}0"

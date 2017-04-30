@@ -5,5 +5,5 @@ open Xunit
 open Dijkstra
 
 [<Fact>]
-let ``Say.hello should return hello foo`` () =
-    Assert.Equal("Hello foo", Say.hello "foo")
+let ``noGraph should have noPath`` () =
+    Assert.Equal("{}0", PathFinder.minPath(""))
